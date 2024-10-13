@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+*{
+    margin:0;
+    padding:0;
+}
+body{
+    font-family: poppins;
+    background-color: #CDCDCD;
+    overflow-x: hidden;
+}
+.one{
+    background-color: #CDCDCD;
+}
+
+nav ul li {
+    position: relative;
+    cursor: pointer;
+    margin: 4px;
+}
+
+nav ul li::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px; /* Adjust thickness */
+    background: black; /* Adjust color */
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+nav ul li:hover::after {
+    transform: scaleX(1);
+}
+
+.mobile-menu {
+    transform: translateX(100%); /* Start off-screen */
+    transition: transform 0.5s ease-in-out;
+}
+.mobile-menu.visible {
+    transform: translateX(0); /* Slide into view */
+}
+
+  
+  @keyframes marquee2 {
+    from {
+      transform: translateX(100%);
+    }
+    to {
+      transform: translateX(0%);
+    }
+  }
+
+  @keyframes marquee {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  
+  /* Marquee Container */
+  .marquee-container {
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+  
+  /* Marquee Content */
+  .marquee-content {
+    display: flex;
+    animation: marquee 25s linear infinite;
+  }
+  
+  /* Pause Animation on Hover */
+  .marquee-container:hover .marquee-content {
+    animation-play-state: paused;
+  }
+
+  .goeey{
+    height:20vw;
+    width:20vw;
+    background:linear-gradient(to top,#ff2d03b2, #ff5c0b);
+    border-radius: 50%;
+    /* position: absolute; 
+    z-index: 5;
+    top:25%;
+    left:26%; */
+    animation-name: anime5;
+    animation-duration: 5s; /* Increased duration for slower speed */
+    animation-direction: alternate;
+    animation-timing-function: ease; /* Changed to ease for a smoother transition */
+    animation-iteration-count: infinite;
+    filter: blur(60px);
+  }
+
+  
+.swiper {
+  width: 100%;
+  height: auto; /* Allow height to adjust based on content */
+}
+
+  @keyframes anime5{
+    from{
+        transform: translate(20%,-15%) skew(0); /* Increased movement */
+        filter: blur(20px);
+    }
+    to{
+        transform: translate(-20%,15%) skew(-15deg); /* Increased movement and skew */
+        filter: blur(40px);
+    }
+  }
+  
+
+@media (max-width: 450px) {
+   .one h1{
+    font-size: 10vw;
+   }
+   .one h2{
+    font-size: 6vw;
+   }
+   .marquee-content {
+    display: flex;
+    animation: marquee 15s linear infinite;
+  }
+}
+
+
+
+@media (max-width: 650px) {
+    .marquee-content {
+     display: flex;
+     animation: marquee 15s linear infinite;
+   }
+   .goeey {
+    height: 35vw; /* Adjust size for smaller screens */
+    width: 35vw;
+}
+ }
